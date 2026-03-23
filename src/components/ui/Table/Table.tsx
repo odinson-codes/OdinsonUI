@@ -188,7 +188,6 @@ const TableComponent = <T extends Record<string, unknown>>({
                         </button>
                     </div>
                 )}
-
                 <div className="mb-4 flex flex-wrap gap-3">
                     {columns
                         .filter((col) => col.filterable)
@@ -201,7 +200,7 @@ const TableComponent = <T extends Record<string, unknown>>({
                                     value={columnFilters[String(col.accessor)] || ""}
                                     onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                                         handleColumnFilter(String(col.accessor), e.target.value)
-                                    }
+                                    } 
                                     className="border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[150px]">
                                     <option value="">All {col.header}</option>
                                     {col.accessor &&
