@@ -11,13 +11,17 @@ import Badge from "./components/ui/Badge.tsx";
 import Separator from "./components/ui/Seperator.tsx";
 import {H1, H2, H3, H4} from "./components/ui/Typography.tsx";
 import FlexGrid from "./components/ui/FlexGrid.tsx";
-import {Check} from "lucide-react";
 import Checkbox from "./components/ui/Checkbox/Checkbox.tsx";
 import RadioButton from "./components/ui/RadioButton/RadioButton.tsx";
 import TextArea from "./components/ui/TextArea.tsx";
 import {useState} from "react";
 import {Modal} from "./components/ui/Modal.tsx";
-
+import EmptyState from "./components/ui/EmptyState.tsx";
+import { BatteryMedium} from 'lucide-react';
+import {Skeleton} from "./components/ui/SkeletonLoader.tsx";
+import {Tooltip} from "./components/ui/Tooltip.tsx";
+import {Popover} from "./components/ui/Popover.tsx";
+import Avatar from "./components/ui/Avatar.tsx";
 
 function App() {
 const {control} = useForm()
@@ -33,6 +37,10 @@ const {control} = useForm()
       ]
   return (
       <>
+          <Popover trigger={<Avatar size={"lg"} url={"https://images.unsplash.com/photo-1761839256545-4268b03606c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8"} alt={"avatar"} fallback={"https://unsplash.com/photos/two-women-arriving-at-a-doorway-greeted-by-another-woman-MdcJY5doCTo"} />} placement="bottom" className={'ml-64'} contentClassName={"bg-green-500"}>
+              <p className="font-semibold">User Settings</p>
+              <p className="text-zinc-400 text-xs">Manage your account</p>
+          </Popover>
     <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 ml-4"}>
         <Input name={"name"} control={control} label={"odinson"} variant={"bordered"} />
         <Input name={"name"} control={control} label={"readOnly"} variant={"bordered"} isReadOnly={true} />
@@ -164,6 +172,23 @@ const {control} = useForm()
               <div className={"bg-red-500"}>This is two</div>
               <div className={"bg-red-500"}>This is two</div>
           </FlexGrid>
+          <EmptyState title={"Nothing seems to be here, Comeback later"} icon={<BatteryMedium />} className={'bg-black text-white border '} />
+          <div className={'flex'}>
+              <Skeleton className="h-12 w-12 rounded-full bg-gray-500 ml-64" />
+              <div className={'flex flex-col space-y-1 '}>
+                  <Skeleton className="h-4 w-24  bg-gray-500 " />
+                  <Skeleton className="h-4 w-24  bg-gray-500 " />
+              </div>
+          </div>
+          <div className={"flex space-y-1 "}>
+              <Tooltip side={"top"} content={"Odinson Was here"}>Odinson</Tooltip>
+              <Tooltip side={"top"} content={"Odinson Was here"}>Odinson</Tooltip>
+              <Tooltip side={"top"} content={"Odinson Was here"}>Odinson</Tooltip>
+              <Tooltip side={"top"} content={"Odinson Was here"}>Odinson</Tooltip>
+              <Tooltip side={"top"} content={"Odinson Was here"}>Odinson</Tooltip>
+              <Tooltip side={"top"} content={"Odinson Was here"}>Odinson</Tooltip>
+          </div>
+          <Avatar size={"lg"} url={"https://images.unsplash.com/photo-1761839256545-4268b03606c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8"} alt={"avatar"} fallback={"https://unsplash.com/photos/two-women-arriving-at-a-doorway-greeted-by-another-woman-MdcJY5doCTo"} />
           </>
   )
 }
