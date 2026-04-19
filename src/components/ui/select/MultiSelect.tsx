@@ -45,7 +45,7 @@ const MultiSelect = <T extends FieldValues>({
                                                 isReadOnly = false,
                                                 id,
                                                 defaultValue = [],
-                                                placeholder = "Select options...",
+                                                placeholder = "",
                                                 options = [],
                                                 showError = true,
                                                 disabled = false,
