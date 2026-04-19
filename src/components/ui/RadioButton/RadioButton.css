@@ -1,0 +1,72 @@
+.custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.custom-radio-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.custom-radio input:hover:not(:disabled) ~ .custom-radio-box {
+    border-color: #000000;
+}
+
+.custom-radio input:focus ~ .custom-radio-box {
+    outline: 2px solid #7d7f7c;
+    outline-offset: 2px;
+}
+
+.custom-radio input:checked ~ .custom-radio-box {
+    border-color: #000000;
+}
+
+.custom-radio input:disabled ~ .custom-radio-box {
+    background-color: #7d7f7c;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.custom-radio-box.error {
+    border-color: #ff0000;
+}
+
+.custom-radio input:focus.error ~ .custom-radio-box {
+    outline-color: #ff0000;
+}
+
+/* Inner dot for checked state */
+.custom-radio-box::after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #000000;
+}
+
+.custom-radio input:checked ~ .custom-radio-box::after {
+    display: block;
+}

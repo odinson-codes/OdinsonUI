@@ -26,6 +26,7 @@ interface AccordionItemProps {
     isLast: boolean;
 }
 
+{/**Added comment to add change to git */}
 
 const wrapperStyles: Record<AccordionVariant, (isFirst: boolean, isLast: boolean) => string> = {
     bordered: () => 'border border-borderColor rounded-lg overflow-hidden',
